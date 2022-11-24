@@ -1,7 +1,7 @@
 import { Button } from "./styles/Button";
 import { GlobalStyle } from "./styles/Global";
 import { TypographyStyle } from "./styles/Typography";
-import { InputSearch } from "./components/InputSearch";
+import { Header } from "./components/Header";
 
 function App() {
   return (
@@ -9,13 +9,7 @@ function App() {
       <GlobalStyle />
       <TypographyStyle />
       
-      <Button 
-      type="secondary" 
-      size="medium"
-      className="font_body-bold">
-        Teste
-      </Button>
-      <InputSearch />
+      <Header />
     </>
   );
 }

@@ -1,0 +1,1 @@
+export const treatPrice = (price) => 'R$ ' + price.toFixed(2).toString().replace('.', ',');

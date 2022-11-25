@@ -4,12 +4,29 @@ import { TypographyStyle } from "./styles/Typography";
 import { Header } from "./components/Header";
 import { ProductCard } from "./components/ProductCard";
 import { ProductsList } from "./styles/ProductsList";
-import { CartCard } from "./components/CartCard";
-
-import logo from "./assets/img/logo.svg"
 import { Cart } from "./components/Cart/index.jsx";
+import { useEffect, useState } from "react";
+import { api } from "./scripts/api.js";
+import { ResultsHeader } from "./components/ResultsHeader/index.jsx";
 
 function App() {
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState([]);
+
+  useEffect(() => {
+    async function getProducts() {
+      try {
+        const requisition = await api.get('products');
+        setProducts(requisition.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getProducts();
+  }, []);
+
   return (
     <>
       <GlobalStyle />
@@ -17,21 +34,57 @@ function App() {
 
       <Header />
       <StyledMain >
-        <ProductsList>
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-        </ProductsList>
-        <Cart>
-          <CartCard name="teste" image={logo} category="teste" />
-          <CartCard name="teste" image={logo} category="teste" />
-          <CartCard name="teste" image={logo} category="teste" />
-          <CartCard name="teste" image={logo} category="teste" />
-          <CartCard name="teste" image={logo} category="teste" />
-          <CartCard name="teste" image={logo} category="teste" />
-        </Cart>
+        {console.log(cartProducts)}
+        {
+          filteredProducts.length === 0 ?
+            (
+              <ProductsList>
+                {
+                  products.map((item) => {
+                    return <ProductCard
+                      product={item}
+                      image={item.img}
+                      name={item.name}
+                      category={item.category}
+                      price={item.price}
+                      key={item.id}
+                      id={item.id}
+                      cart={cartProducts}
+                      setCart={setCartProducts}
+                    />
+                  })
+                }
+              </ProductsList>
+            )
 
+            :
+            (
+              <>
+                <ResultsHeader />
+                <ProductsList>
+                  {
+                    filteredProducts.map((item) => {
+                      return <ProductCard
+                        image={item.img}
+                        name={item.name}
+                        category={item.category}
+                        price={item.price}
+                        key={item.id}
+                        id={item.id}
+                        cart={cartProducts}
+                        setCart={setCartProducts}
+                      />
+                    })
+                  }
+                </ProductsList>
+              </>
+            )
+        }
 
+        <Cart
+          products={cartProducts}
+          setProducts={setCartProducts}
+        />
       </StyledMain>
     </>
   );

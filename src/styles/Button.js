@@ -4,7 +4,12 @@ export const Button = styled.button`
     background-color: ${(props) => props.styleType === 'secondary' ? 'var(--color-grey-2)' : 'var(--color-primary-1)'};
     color: ${(props) => props.styleType === 'secondary' ? 'var(--color-grey-3)' : '#FFFFFF'};
 
-    padding: ${(props) => props.size === 'medium' ? '0.625rem 1.25rem' : '1.25rem'};
+    padding: ${(props) => {
+        if (props.size === 'medium') return '0.625rem 1.25rem'
+        if (props.size === 'small') return '0.25rem 0.5rem'
+        return '1.25rem';
+    }};
+
     line-height: 100%;
     border-radius: 0.5rem;
 

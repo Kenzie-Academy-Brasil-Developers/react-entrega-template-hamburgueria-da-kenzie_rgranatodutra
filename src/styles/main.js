@@ -8,9 +8,15 @@ export const StyledMain = styled.main`
     margin: 2rem auto;
     display: flex;
     flex-direction: column;
-    gap: 4.0625rem;
+
+    @media (max-width: 1039px) {
+        gap: 4rem;
+    }
 
     @media (min-width: 1040px) {
+        gap: 0.5rem;
+        padding: 0;
         flex-direction: row;
+        justify-content: space-between;
     }
 `;

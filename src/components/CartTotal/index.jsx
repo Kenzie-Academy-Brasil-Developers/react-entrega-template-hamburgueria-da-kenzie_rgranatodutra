@@ -1,7 +1,9 @@
-import { Button } from "../../styles/Button"
-import { StyledCartTotal } from "./style"
+import { Button } from "../../styles/Button";
+import { StyledCartTotal } from "./style";
+import { treatPrice } from "../../scripts/treatPrice";
 
 export const CartTotal = ({ value }) => {
+
     return (
         <StyledCartTotal>
             <div className="font_body-bold">
@@ -9,7 +11,7 @@ export const CartTotal = ({ value }) => {
                     Total
                 </span>
                 <span>
-                    R$ {value.toFixed(2)}
+                    {treatPrice(value)}
                 </span>
             </div>
             <Button

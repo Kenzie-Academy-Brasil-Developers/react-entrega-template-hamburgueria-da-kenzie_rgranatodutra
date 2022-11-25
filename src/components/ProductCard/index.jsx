@@ -1,7 +1,24 @@
 import { Button } from "../../styles/Button";
 import { StyledProductCard } from "./style";
+import { treatPrice } from "../../scripts/treatPrice";
 
-export const ProductCard = ({ image, name, category, price }) => {
+export const ProductCard = ({ product, image, name, category, price, id, cart, setCart }) => {
+
+    function handleClick() {
+
+        let newCart = [...cart];
+        let find = newCart.find(item => item.id === id);
+
+        if (find) {
+            find.ammout++
+        }
+        else {
+            newCart.push({ ...product, ammout: 1 })
+        }
+
+        setCart(newCart);
+    };
+
     return (
         <StyledProductCard>
             <div>
@@ -15,10 +32,11 @@ export const ProductCard = ({ image, name, category, price }) => {
                     {category}
                 </span>
                 <span>
-                    R$ {price/*.toFixed(2)*/}
+                    {treatPrice(price)}
                 </span>
                 <Button
                     size="medium"
+                    onClick={handleClick}
                 >
                     Adicionar
                 </Button>

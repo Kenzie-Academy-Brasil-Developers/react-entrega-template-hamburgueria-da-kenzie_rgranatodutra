@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const StyledProductCard = styled.li`
     border: 1px solid black;
-    width: 18.75rem;
+    min-width: 18.75rem;
     height: max-content;
     border: 2px solid var(--color-grey-1);
     border-radius: 0.5rem;
+    transition: 300ms ease;
 
     &:hover {
         border: 2px solid var(--color-grey-3);

@@ -15,7 +15,7 @@ export const ProductCard = ({ image, name, category, price }) => {
                     {category}
                 </span>
                 <span>
-                    R$ {price.toFixed(2)}
+                    R$ {price/*.toFixed(2)*/}
                 </span>
                 <Button
                     size="medium"

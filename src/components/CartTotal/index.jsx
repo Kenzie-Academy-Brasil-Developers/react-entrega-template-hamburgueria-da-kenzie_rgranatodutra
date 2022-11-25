@@ -2,7 +2,11 @@ import { Button } from "../../styles/Button";
 import { StyledCartTotal } from "./style";
 import { treatPrice } from "../../scripts/treatPrice";
 
-export const CartTotal = ({ value }) => {
+export const CartTotal = ({ value, setCart }) => {
+
+    function handleClick() {
+        setCart([])
+    }
 
     return (
         <StyledCartTotal>
@@ -17,6 +21,7 @@ export const CartTotal = ({ value }) => {
             <Button
                 styleType="secondary"
                 size="default"
+                onClick={handleClick}
             >
                 Remover Todos
             </Button>

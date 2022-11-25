@@ -12,7 +12,7 @@ export const TypographyStyle = createGlobalStyle`
         font-weight: 700;
     }
     .font_title-2 {
-        font-size: 1.375;
+        font-size: 1.375rem;
         font-weight: 700;
     }
     .font_title-3 {

@@ -24,4 +24,17 @@ export const GlobalStyle = createGlobalStyle`
         --color-sucess: #168821;
         --color-info: #155bcb;
     }
+
+    ::-webkit-scrollbar {
+        width: 0.625rem;
+        background-color: var(--color-grey-1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--color-primary-1);
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+        background-color: var(--color-primary-2);
+    }
 `;

@@ -1,5 +1,6 @@
 import { Button } from "../../styles/Button";
 import { StyledCartCard } from "./style";
+import { treatName } from "../../scripts/treatName";
 
 export const CartCard = ({ id, image, name, category, ammout, cart, setCart }) => {
 
@@ -35,8 +36,8 @@ export const CartCard = ({ id, image, name, category, ammout, cart, setCart }) =
                 <img src={image} alt={name} />
             </div>
             <div>
-                <h2 className="font_title-3">
-                    {ammout}x{name}
+                <h2 className="font_title-3" title={name}>
+                    {ammout}x{treatName(name)}
                 </h2>
                 <span className="font_caption"> {category} </span>
                 <Button

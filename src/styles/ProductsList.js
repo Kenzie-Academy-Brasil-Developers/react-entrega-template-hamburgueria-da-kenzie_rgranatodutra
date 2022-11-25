@@ -12,8 +12,7 @@ export const ProductsList = styled.ul`
     
     @media (min-width: 1040px) {
         padding: 1.2rem;
-        width: calc(100% - 21.375rem);
-        max-height: calc(100vh - 15.15rem);
+        max-height: ${props => props.containHeader ? 'calc(100vh - 19.5rem)' : 'calc(100vh - 15.15rem)'};
         max-width: 100%;
         row-gap: 0.75rem;
         flex-wrap: wrap;

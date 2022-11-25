@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledMain = styled.main`
     box-sizing: border-box;
-    width: 98%;
+    width: 100%;
     max-width: 85.625rem;
     padding: 0 1rem;
     margin: 2rem auto;

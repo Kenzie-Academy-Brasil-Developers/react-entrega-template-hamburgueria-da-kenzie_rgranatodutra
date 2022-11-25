@@ -41,6 +41,8 @@ export const StyledCart = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        width: 21.375rem;
+        max-width: 100%;
         padding: 3rem 0;
         gap: 1rem;
 
